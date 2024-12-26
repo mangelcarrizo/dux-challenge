@@ -1,0 +1,24 @@
+@import 'primereact/resources/themes/lara-light-blue/theme.css';
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
+@import 'primeflex/primeflex.css';
+
+html,
+body {
+     padding: 0;
+     margin: 0;
+}
+
+.p-menubar .p-menubar-button {
+     display: none !important;
+}
+
+.p-dialog-header {
+     padding: 0 !important;
+}
+
+.p-menubar {
+     border: 0 !important;
+     border-radius: 0 !important;
+}
+
