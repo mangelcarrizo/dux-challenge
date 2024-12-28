@@ -1,20 +1,30 @@
 import { useState } from 'react';
+
+// Componentes de PrimeReact
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import useUsers from '@/src/hooks/useUsers';
-import { ActiveDropdown, User } from '@/src/interfaces/IUsers';
 import { Paginator, PaginatorPageChangeEvent } from 'primereact/paginator';
+
+// Hooks personalizados
+import useUsers from '@/src/hooks/useUsers';
+
+// Interfaces o tipos
+import { ActiveDropdown, User } from '@/src/interfaces/IUsers';
+
+// Componentes locales
 import Filters from '../Filters/Filters';
 import Modal from '../Modal/Modal';
-import { calculatePage } from '@/src/utils/utils';
 import Loading from '../Loading/Loading';
+
+// Utilidades
+import { calculatePage } from '@/src/utils/utils';
+
 
 export default function TableComponent() {
      const [name, setName] = useState<string>('');
      const [isActive, setIsActive] = useState<ActiveDropdown | null>(null);
      const [page, setPage] = useState<number>(1);
      const [limit, setLimit] = useState<number>(10);
-
      const [selectedUser, setSelectedUser] = useState<User | undefined>();
      const [openModal, setOpenModal] = useState<boolean>(false);
 
@@ -24,7 +34,7 @@ export default function TableComponent() {
           setLimit(event.rows);
      };
 
-     const { users, totalUsers, loading } = useUsers(name, isActive, page, limit);
+     const { users, totalUsers, loading, getAllUsers, edit, create } = useUsers(openModal, name, isActive, page, limit);
 
      return (
           <>
@@ -71,9 +81,13 @@ export default function TableComponent() {
                )}
                {openModal && (
                     <Modal
+                         edit={edit}
+                         create={create}
                          open={openModal}
                          setOpenModal={setOpenModal}
                          selectedUser={selectedUser}
+                         isEdit={true}
+                         getAllUsers={getAllUsers}
                     />
                )}
           </>

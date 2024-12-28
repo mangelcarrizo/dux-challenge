@@ -1,12 +1,17 @@
-'use client'
+'use client';
+
+// Componentes de PrimeReact
 import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
+
+// Modelos o tipos
 import { DropdownOptions } from '@/src/models/Dropdown';
 import { FiltersProps } from '@/src/interfaces/IFilters';
+
+// Dependencias externas
 import { useRef, useState } from 'react';
 
 export default function Filters({ name, setName, isActive, setIsActive, setPage }: FiltersProps) {
-
      const [tempName, setTempName] = useState(name);
      const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -25,7 +30,7 @@ export default function Filters({ name, setName, isActive, setIsActive, setPage 
      };
 
      return (
-          <div className="card flex flex-row md:flex-row gap-3">
+          <div className="card flex flex-row md:flex-row gap-3 mb-3">
                <div className="p-inputgroup flex-1">
                     <span className="p-inputgroup-addon" style={{ backgroundColor: 'white' }}>
                          <i className="pi pi-search"></i>

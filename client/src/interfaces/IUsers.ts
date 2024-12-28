@@ -17,6 +17,12 @@ export interface UseUsersParams {
     deleteUser: (id: string) => void;
 }
 
+export interface UseUsersProps {
+    name: string,
+    isActive: ActiveDropdown | null,
+    page: number,
+    limit: number
+}
 export interface UserResponse {
     id: string;
     estado: string;

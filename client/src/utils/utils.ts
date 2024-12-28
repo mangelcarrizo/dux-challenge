@@ -12,5 +12,4 @@ export const getQueryString = (name: string, isActive: ActiveDropdown | null, pa
      params.append('_page', page.toString());
      params.append('_limit', limit.toString());
      return params.toString();
- };
- 
+};

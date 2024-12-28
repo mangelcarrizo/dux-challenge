@@ -1,4 +1,11 @@
-export default function HeaderModal(setOpenModal: void) {
+import { ModalHeaderProps } from "@/src/interfaces/IModal";
+
+export default function HeaderModal({ setOpenModal }: ModalHeaderProps) {
+
+     const handleClose = () => {
+          setOpenModal(false)
+     }
+
      return (
           <div style={{
                display: 'flex',
@@ -13,7 +20,7 @@ export default function HeaderModal(setOpenModal: void) {
                <span style={{ flex: 1, fontWeight: 'bold' }}>Usuario</span>
                <div className="flex align-items-center space-x-2 gap-2">
                     <i className="pi pi-cog cursor-pointer" style={{ fontSize: '1rem' }}></i>
-                    <i className="pi pi-minus cursor-pointer" style={{ fontSize: '1rem' }} onClick={() => setOpenModal(false)}></i>
+                    <i className="pi pi-minus cursor-pointer" style={{ fontSize: '1rem' }} onClick={() => handleClose()}></i>
                </div>
           </div>
      )

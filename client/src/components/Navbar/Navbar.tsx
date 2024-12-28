@@ -1,6 +1,9 @@
+// Dependencias externas
 import React from 'react';
-import { Menubar } from 'primereact/menubar';
 import Image from 'next/image';
+
+// Componentes de PrimeReact
+import { Menubar } from 'primereact/menubar';
 
 export default function Navbar() {
     const start = (
